@@ -1,6 +1,6 @@
 // Variables
 let intentos = 6;
-const diccionario = ['MANOS', 'TIGRE', 'SILLA', 'FUEGO', 'COCHE', 'PERRO', 'GATOS', 'FLORES', 'MESAS', 'PATIO', 'LUNES', 'JUEGO', 'BEBES', 'RADIO', 'SOLAR', 'PULPO', 'CIELO', 'HOYOS', 'ROJOS', 'RELOJ'];
+const diccionario = ['MANOS', 'TIGRE', 'SILLA', 'FUEGO', 'COCHE', 'PERRO', 'GATOS', 'MESAS', 'PATIO', 'LUNES', 'JUEGO', 'BEBES', 'RADIO', 'SOLAR', 'PULPO', 'CIELO', 'HOYOS', 'ROJOS', 'RELOJ'];
 const button = document.getElementById("guess-button");
 const input = document.getElementById("guess-input");
 const grid = document.getElementById("grid");
@@ -9,11 +9,22 @@ const guesses = document.getElementById("guesses");
 // Obtener una palabra aleatoria del diccionario
 const palabra = diccionario[Math.floor(Math.random() * diccionario.length)];
 
+// Agregar evento al botón
+button.addEventListener("click", intentar);
+
 // Función para terminar el juego
 function terminar(mensaje) {
     input.disabled = true;
     button.disabled = true;
     guesses.innerHTML = mensaje;
+}
+
+function errorCaracteres(mensaje) {
+    guesses.innerHTML = mensaje;
+}
+
+function limpiarError() {
+    guesses.innerHTML = "";
 }
 
 // Función para validar el intento del usuario
@@ -29,16 +40,17 @@ function validarIntento(intento) {
 
 // Función para realizar un intento
 function intentar() {
+    limpiarError();
     const INTENTO = input.value.toUpperCase();
 
     if (!validarIntento(INTENTO)) {
         // Mostrar mensaje de error al usuario
-        alert("El intento debe tener 5 caracteres.");
+        errorCaracteres("El intento debe tener 5 caracteres :)");
         return;
     }
 
     if (INTENTO === palabra) {
-        terminar("<h1>¡GANASTE! 😀</h1>");
+        terminar("<p>¡GANASTE! 😀</p>");
         return;
     }
 
@@ -69,9 +81,8 @@ function intentar() {
     intentos--;
 
     if (intentos === 0) {
-        terminar("<h1>¡PERDISTE! 😖</h1>");
+        terminar("<p>¡PERDISTE! 😖</p>");
     }
 }
 
-// Agregar evento al botón
-button.addEventListener("click", intentar);
+

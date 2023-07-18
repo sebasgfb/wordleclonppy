@@ -1,23 +1,36 @@
 body {
-  font-family: "Verdana", sans-serif;
-  background: linear-gradient(90deg, rgba(113,230,22,1) 0%, rgba(39,215,104,1) 100%);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background: linear-gradient(90deg, rgba(230, 202, 22, 0.777) 0%, rgb(169, 231, 68) 100%);
   color: rgb(23, 26, 29);
 }
 
 h1 {
   text-align: center;
+  font-size: 49px;
   margin-top: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+#contenedor {
+  display: flex;
+  font-size: 20px;
+  flex-direction: column;
+  align-items: center;
+  width: 30vw;
+  height: auto;
+  margin: auto;
+  background-color: rgba(250, 235, 215, 0.37);
+  border-radius: 30px;
+  
 }
 
 #guess-input {
   display: block;
   margin: 0 auto 15px;
   padding: 8px;
-  text-align: center;
   font-size: 20px;
   width: 200px;
-  background-color: rgba(250, 235, 215, 0.709);
+  background-color: rgba(235, 251, 227, 0.412);
   border: 3px solid #000000;
   border-radius: 20px;
 }
@@ -25,13 +38,14 @@ h1 {
 #guess-button {
   display: block;
   margin: 0 auto 15px;
-  width: 220px;
+  width: 50px;
   padding: 8px;
   font-size: 20px;
   background-color: #1280319b;
   color: #ffffff;
   border: 3px solid black;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 #guess-button:hover {
@@ -41,7 +55,7 @@ h1 {
 #grid {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 285px;
   font-size: 25px;
 }
@@ -56,33 +70,33 @@ button:active {
   padding: 2px 2px;
   margin: 3px;
   min-width: 40px;
-  min-height: 20px;
+  min-height: 40px;
   text-align: center;
-  display: inline-block;
+  justify-content: center;
+  display: inline-flex;
 }
 
 .row {
   margin-bottom: 6px;
 }
 
-.input-area {
-  margin: 30px;
-}
-
 /* Responsive */
 
 @media screen and (max-width: 900px) {
   h1 {
-    font-size: 24px;
+    font-size: 54px;
     margin-top: 10px;
     margin-bottom: 10px;
   }
 
+  #contenedor {
+    width: 80vw;
+  }
   #guess-input {
     width:75%;
   }
   #guess-button {
-    width: 80%;
+    width: 25%;
   }
 
   #grid {
