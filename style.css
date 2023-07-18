@@ -24,7 +24,7 @@ h1 {
 #guess-button {
   display: block;
   margin: 0 auto 15px;
-  width: 200px;
+  width: 220px;
   padding: 8px;
   font-size: 20px;
   background-color: #11649b;
@@ -70,14 +70,16 @@ button:active {
 
 /* Responsive */
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 600px) {
   h1 {
     font-size: 24px;
     margin-top: 10px;
     margin-bottom: 10px;
   }
 
-  #guess-input,
+  #guess-input {
+    width:75%;
+  }
   #guess-button {
     width: 80%;
   }
