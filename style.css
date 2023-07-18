@@ -3,13 +3,13 @@ body {
   background-color: rgb(15, 175, 108);
   color: rgb(23, 26, 29);
 }
-   
+
 h1 {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 15px;
 }
-   
+
 #guess-input {
   display: block;
   margin: 0 auto 15px;
@@ -20,7 +20,7 @@ h1 {
   border: 3px solid #000000;
   border-radius: 20px;
 }
-   
+
 #guess-button {
   display: block;
   margin: 0 auto 15px;
@@ -35,7 +35,7 @@ h1 {
 #guess-button:hover {
   transform: scale(1.05);
 }
-   
+
 #grid {
   margin-left: auto;
   margin-right: auto;
@@ -47,22 +47,22 @@ h1 {
 button:active {
   transform: scale(0.95);
 }
-   
+
 .letter {
-    border: 3px solid rgb(0, 0, 0);
-    border-radius: 15px;
-    padding: 2px 2px;
-    margin: 3px;
-    min-width: 40px;
-    min-height: 20px;
-    text-align: center;
-    display: inline-block;
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 15px;
+  padding: 2px 2px;
+  margin: 3px;
+  min-width: 40px;
+  min-height: 20px;
+  text-align: center;
+  display: inline-block;
 }
-   
-.row{
-    margin-bottom: 10px;
+
+.row {
+  margin-bottom: 10px;
 }
-   
-.input-area{
-    margin: 30px;
+
+.input-area {
+  margin: 30px;
 }
