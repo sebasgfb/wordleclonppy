@@ -1,22 +1,29 @@
 body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background: linear-gradient(90deg, rgba(230, 202, 22, 0.777) 0%, rgb(169, 231, 68) 100%);
-  color: rgb(23, 26, 29);
+  background: linear-gradient(90deg, rgba(229, 205, 50, 0.777) 0%, rgb(169, 231, 68) 100%);
+  color: rgb(30, 36, 39);
 }
 
 h1 {
   text-align: center;
-  font-size: 49px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  font-size: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+p{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 #contenedor {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, serif;
   display: flex;
   font-size: 20px;
   flex-direction: column;
   align-items: center;
-  width: 30vw;
+  width: 50vw;
   height: auto;
   margin: auto;
   background-color: rgba(250, 235, 215, 0.37);
@@ -26,8 +33,10 @@ h1 {
 
 #guess-input {
   display: block;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin: 0 auto 15px;
   padding: 8px;
+  text-align: center;
   font-size: 20px;
   width: 200px;
   background-color: rgba(235, 251, 227, 0.412);
@@ -37,12 +46,13 @@ h1 {
 
 #guess-button {
   display: block;
-  margin: 0 auto 15px;
-  width: 50px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0 auto 10px;
+  width: 150px;
   padding: 8px;
-  font-size: 20px;
+  font-size: 15px;
   background-color: #1280319b;
-  color: #ffffff;
+  color: #1c1717;
   border: 3px solid black;
   border-radius: 20px;
   cursor: pointer;
@@ -53,11 +63,8 @@ h1 {
 }
 
 #grid {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  width: 285px;
-  font-size: 25px;
+  margin:auto;
+  width: auto;
 }
 
 button:active {
@@ -66,9 +73,11 @@ button:active {
 
 .letter {
   border: 3px solid rgb(0, 0, 0);
-  border-radius: 15px;
+  border-radius: 22px;
+  font-size: 28px;
+  color: #1e1806;;
   padding: 2px 2px;
-  margin: 3px;
+  margin: 5px;
   min-width: 40px;
   min-height: 40px;
   text-align: center;
@@ -76,15 +85,17 @@ button:active {
   display: inline-flex;
 }
 
-.row {
-  margin-bottom: 6px;
+.mensaje {
+  font-size: 28px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 /* Responsive */
 
 @media screen and (max-width: 900px) {
   h1 {
-    font-size: 54px;
+    font-size: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -96,7 +107,7 @@ button:active {
     width:75%;
   }
   #guess-button {
-    width: 25%;
+    width: 30%;
   }
 
   #grid {
@@ -104,7 +115,5 @@ button:active {
     text-align: center;
     font-size: 30px;
   }
-  .row {
-    margin: 10px;
-  }
+  
 }

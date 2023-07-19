@@ -1,35 +1,57 @@
 // Variables
 let intentos = 6;
-const diccionario = ['MANOS', 'TIGRE', 'SILLA', 'FUEGO', 'COCHE', 'PERRO', 'GATOS', 'MESAS', 'PATIO', 'LUNES', 'JUEGO', 'BEBES', 'RADIO', 'SOLAR', 'PULPO', 'CIELO', 'HOYOS', 'ROJOS', 'RELOJ'];
+let palabra = '';
 const button = document.getElementById("guess-button");
 const input = document.getElementById("guess-input");
 const grid = document.getElementById("grid");
 const guesses = document.getElementById("guesses");
+const diccionario = ['MANOS', 'TIGRE', 'SILLA', 'FUEGO', 'COCHE', 'PERRO', 'GATOS', 'MESAS', 'PATIO', 'LUNES', 'JUEGO', 'BEBES', 'RADIO', 'SOLAR', 'PULPO', 'CIELO', 'HOYOS', 'ROJOS', 'RELOJ']
 
-// Obtener una palabra aleatoria del diccionario
-const palabra = diccionario[Math.floor(Math.random() * diccionario.length)];
+// Obtener palabra aleatoria en español de longitud 5
+function obtenerPalabra() {
+    fetch("https://random-word-api.herokuapp.com/word?length=5&lang=es")
+        .then(response => response.json())
+        .then(data => {
+            palabra = data[0].toUpperCase();
+            console.log(palabra);
+        })
+        .catch(error => {
+            console.log(error);
+            palabra = diccionario[Math.floor(Math.random() * diccionario.length)];
+            console.log(palabra);
+        });
+}
 
 // Agregar evento al botón
 button.addEventListener("click", intentar);
 
-// Función para terminar el juego
+// Agregar evento a enter
+input.addEventListener("keyup", function(event) {
+    // Verificar enter ( tecla código 13)
+    if (event.keyCode === 13) {
+        event.preventDefault(); // Prevenir el comportamiento por defecto de enter
+        intentar(); // Llamar a la función intentar()
+    }
+});
+
+// Funcion para terminar el juego y cambiar el boton a nuevo juego.
 function terminar(mensaje) {
     input.disabled = true;
-    button.disabled = true;
     guesses.innerHTML = mensaje;
+    button.textContent = "Nuevo Juego c:";
+    button.addEventListener("click", function() {location.reload();});
 }
 
 function errorCaracteres(mensaje) {
     guesses.innerHTML = mensaje;
 }
-
 function limpiarError() {
     guesses.innerHTML = "";
 }
 
-// Función para validar el intento del usuario
+// Funcion para validar el intento del usuario
 function validarIntento(intento) {
-    intento = intento.toUpperCase(); // Eliminar espacios en blanco y convertir a mayúsculas
+    intento = intento.toUpperCase(); // Convertir a mayúsculas
 
     if (intento.length !== 5) {
         return false; // El intento no tiene 5 caracteres
@@ -38,9 +60,9 @@ function validarIntento(intento) {
     return true; // El intento es válido
 }
 
-// Función para realizar un intento
+// Funcion para realizar un intento
 function intentar() {
-    limpiarError();
+    limpiarError(); //Esto se usa para limpiar el error de 5 caracteres en caso de que este mostrandose.
     const INTENTO = input.value.toUpperCase();
 
     if (!validarIntento(INTENTO)) {
@@ -50,7 +72,7 @@ function intentar() {
     }
 
     if (INTENTO === palabra) {
-        terminar("<p>¡GANASTE! 😀</p>");
+        terminar("<p class='mensaje'>¡GANASTE! 😀</p>");
         return;
     }
 
@@ -81,8 +103,9 @@ function intentar() {
     intentos--;
 
     if (intentos === 0) {
-        terminar("<p>¡PERDISTE! 😖</p>");
+        terminar("<p class='mensaje'>¡PERDISTE! 😖</p>");
     }
 }
 
-
+// Obtener la primera palabra antes de iniciar el juego
+obtenerPalabra();
